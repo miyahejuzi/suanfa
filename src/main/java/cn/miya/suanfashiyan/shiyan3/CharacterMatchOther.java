@@ -3,7 +3,7 @@ package cn.miya.suanfashiyan.shiyan3;
 import java.util.Arrays;
 
 /**
- * 串匹配的其他算法
+ * 串匹配的其他算法 kmp
  *
  * @author orange
  */
@@ -20,7 +20,8 @@ public class CharacterMatchOther {
     public static int[] kmpnext(String dest) {
         int[] next = new int[dest.length()];
         next[0] = 0;
-        for (int i = 1, j = 0; i < dest.length(); i++) {
+        int j = 0;
+        for (int i = 1; i < dest.length(); i++) {
             while (j > 0 && dest.charAt(j) != dest.charAt(i)) {
                 j = next[j - 1];
             }
@@ -33,7 +34,7 @@ public class CharacterMatchOther {
     }
 
     /**
-     * @param str str文本串
+     * @param str  str文本串
      * @param dest 模式串
      */
     public static int KMP(String str, String dest, int[] next) {
